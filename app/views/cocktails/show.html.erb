@@ -10,5 +10,6 @@
 </ul>
 
 <p><%= link_to "add a dose", new_cocktail_dose_path(@cocktail) %></p>
+<p><%= link_to "delete the cocktail", cocktail_path(@cocktail), method: :delete %></p>
 <p><%= link_to "Back to cocktails", cocktails_path %></p>
 
