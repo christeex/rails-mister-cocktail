@@ -1,0 +1,8 @@
+<h1>Add a New Dose</h1>
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :description %>
+  <%= f.association :ingredient, collection: Ingredient.where.not(id: @cocktail.ingredients) %>
+
+  <%= f.submit "add a dose", class: "btn btn-primary" %>
+<% end %>
