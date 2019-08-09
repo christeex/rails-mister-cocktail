@@ -1,8 +1,14 @@
-<h1>Create a New Cocktail</h1>
 
-<%= simple_form_for @cocktail do |f| %>
-  <%= f.input :name %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <%= f.submit "add a cocktail", class: "btn btn-primary" %>
-<% end %>
+<div style="background-image: url('<%= image_path "white_cocktail.jpeg" %>')">
+  <div class="container">
+    <h1>Create a New Cocktail</h1>
+
+    <%= simple_form_for @cocktail do |f| %>
+      <%= f.input :name %>
+      <%= f.input :username %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.submit "add a cocktail", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>

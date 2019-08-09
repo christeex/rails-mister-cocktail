@@ -1,15 +1,31 @@
 <h1><%=@cocktail.name%></h1>
 
-<h2>Ingredients of a <%=@cocktail.name%></h2>
-<ul>
-<% @cocktail.doses.each do |dose|%>
-  <li><%= dose.description %></li>
-  <li><%= dose.ingredient.name %></li>
-  <p><%= link_to "delete the dose", dose_path(dose), method: :delete %></p>
-<% end %>
-</ul>
 
-<p><%= link_to "add a dose", new_cocktail_dose_path(@cocktail) %></p>
-<p><%= link_to "delete the cocktail", cocktail_path(@cocktail), method: :delete %></p>
-<p><%= link_to "Back to cocktails", cocktails_path %></p>
+<div class="card-product">
+  <% if @cocktail.photo.present? %>
+    <%= cl_image_tag cocktail.photo %>
+  <% else %>
+    <img src="https://images.pexels.com/photos/1232152/pexels-photo-1232152.jpeg?cs=srgb&dl=alcoholic-beverage-beverage-citrus-1232152.jpg&fm=jpg" alt="online cocktail">
+  <% end %>
+  <div class="card-product-infos">
 
+    <h2 class = "row mb-3">Ingredients of a <%=@cocktail.name%></h2>
+
+    <div class = "row d-flex justify-content-between">
+      <div>
+        <ul>
+        <% @cocktail.doses.each do |dose|%>
+          <li><%= dose.description+' | '+dose.ingredient.name %></li>
+          <%= link_to "delete the dose", dose_path(dose), method: :delete, class: "btn btn-ghost m-2" %>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row align-middle">
+<%= link_to "add a dose", new_cocktail_dose_path(@cocktail), class: "btn btn-ghost m-5" %>
+<%= link_to "delete the cocktail", cocktail_path(@cocktail), method: :delete, class: "btn btn-ghost m-5" %>
+<%= link_to "Back to cocktails", cocktails_path, class: "btn btn-ghost m-5 align-middle"%>
+</div>
