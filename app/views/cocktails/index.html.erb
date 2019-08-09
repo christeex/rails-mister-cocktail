@@ -4,7 +4,7 @@
     <p>
       <span id="banner-typed-text"></span>
     </p>
-    <a class="btn btn-light" href="https://classica.herokuapp.com/cocktails/new">Add your cocktail</a>
+    <%= link_to "Add your cocktail", new_cocktail_path, class: "btn btn-light"%>
   </div>
 </div>
 
@@ -19,7 +19,7 @@
   <div class="card-trip-infos">
     <div>
       <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
-      <p>descrip</p>
+      <p>created by _<%= cocktail.username %></p>
     </div>
     <h2 class="card-trip-pricing">£99.99</h2>
   </div>
